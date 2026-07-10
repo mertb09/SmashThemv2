@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>Smash Them v2 — Prototype</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- The stage is a 9:16 letterboxed play area; everything lives inside it. -->
+    <div id="stage">
+      <canvas id="game"></canvas>
+
+      <!-- In-game HUD -->
+      <div id="hud" class="hidden">
+        <div class="hud-top">
+          <div class="badge" id="balls-badge">
+            <span class="badge-label">Balls</span>
+            <span id="balls-num">∞</span>
+          </div>
+          <div id="slots-wrap" title="Escaped pins — 5/5 means fail">
+            <div id="slots-label">0/5</div>
+            <div id="slots"></div>
+          </div>
+          <div class="hud-right">
+            <div class="chip" id="level-chip">Lv 1</div>
+            <button id="btn-restart" class="icon-btn" title="Restart level">↻</button>
+          </div>
+        </div>
+        <div id="progress"><div id="progress-fill"></div></div>
+        <div id="heat"><div id="heat-fill"></div><div id="heat-label"></div></div>
+      </div>
+
+      <!-- Main menu -->
+      <div id="ov-menu" class="overlay">
+        <div class="panel">
+          <h1 class="title">SMASH THEM <span class="v2">v2</span></h1>
+          <p class="sub">Pins, crates &amp; bottles ride the belt<br>out of the circus tent.
+            Tap to knock them<br>flying before they reach the end!</p>
+          <div class="rules">
+            <span>🎳 Tap the screen — the cannon shoots where you tap</span>
+            <span>❌ An escaped object fills a slot — 5/5 and you fail</span>
+            <span>🔥 Fire too fast and the cannon overheats for 3s</span>
+          </div>
+          <div id="lvl-btns"></div>
+          <button id="btn-start" class="btn gold big">▶ PLAY LEVEL 1</button>
+        </div>
+      </div>
+
+      <!-- Level result (win / fail) -->
+      <div id="ov-result" class="overlay hidden">
+        <div class="panel">
+          <h1 id="res-title" class="title small">LEVEL CLEARED!</h1>
+          <div id="res-stars">★★★</div>
+          <div id="res-stats"></div>
+          <div class="btn-row">
+            <button id="btn-menu" class="btn ghost">Menu</button>
+            <button id="btn-retry" class="btn">↻ Retry</button>
+            <button id="btn-next" class="btn gold">Next ▶</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
